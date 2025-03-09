@@ -25,8 +25,7 @@ menu = st.sidebar.radio("Pilih Analisis:", [
 # Halaman Beranda
 if menu == "Beranda":
     st.header("Selamat Datang di E-commerce Dashboard! 🛍️")
-    st.write("Dashboard ini menyajikan berbagai analisis terkait transaksi dalam sebuah platform e-commerce. ")
-    
+    st.write("Dashboard ini menyajikan berbagai analisis terkait transaksi dalam platform e-commerce. ")
     st.subheader("🔍 Fitur yang tersedia:")
     st.write("✔ **Kota dengan Pesanan Terbanyak** - Menampilkan kota dengan jumlah pesanan tertinggi.")
     st.write("✔ **Kategori Produk Terlaris** - Menampilkan kategori produk yang paling banyak terjual.")
