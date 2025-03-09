@@ -19,6 +19,7 @@ menu = st.sidebar.radio("Pilih Analisis:", [
     "Kota dengan Pesanan Terbanyak", 
     "Kategori Produk Terlaris", 
     "Waktu Pengiriman Rata-rata", 
+    "Metode Pembayaran Paling Sering", 
     "Metode Pembayaran Rata-rata"
 ])
 
@@ -30,8 +31,8 @@ if menu == "Beranda":
     st.write("✔ **Kota dengan Pesanan Terbanyak** - Menampilkan kota dengan jumlah pesanan tertinggi.")
     st.write("✔ **Kategori Produk Terlaris** - Menampilkan kategori produk yang paling banyak terjual.")
     st.write("✔ **Waktu Pengiriman Rata-rata** - Menghitung dan memvisualisasikan rata-rata waktu pengiriman pesanan ke pelanggan.")
+    st.write("✔ **Metode Pembayaran Paling Sering** - Menampilkan Metode Pembayaran yang sering digunakan berdasarkan jumlah transaksi.")
     st.write("✔ **Metode Pembayaran Rata-rata** - Menganalisis rata-rata nilai transaksi berdasarkan metode pembayaran yang digunakan.")
-    
     st.write("Gunakan menu di sebelah kiri untuk mulai eksplorasi! 🚀")
 
 # Analisis Kota dengan Pesanan Terbanyak
@@ -75,6 +76,18 @@ elif menu == "Waktu Pengiriman Rata-rata":
     ax.set_xlabel("Hari")
     ax.set_ylabel("Frekuensi")
     ax.set_title("Distribusi Waktu Pengiriman")
+    st.pyplot(fig)
+
+#Analisis Metode pembayaran paling sering
+elif menu == "Metode Pembayaran Paling Sering":
+    payment_counts = payments_df['payment_type'].value_counts().reset_index()
+    payment_counts.columns = ['Metode Pembayaran', 'Jumlah Transaksi']
+    
+    st.header("💳 Analisis Metode Pembayaran")
+    fig, ax = plt.subplots(figsize=(10, 5))
+    sns.barplot(x=payment_counts['Metode Pembayaran'],y=payment_counts['Jumlah Transaksi'],palette='viridis',  ax=ax)
+    ax.set_xlabel('Metode Pembayaran', fontsize=12)
+    ax.set_ylabel('Jumlah Transaksi', fontsize=12)
     st.pyplot(fig)
 
 # Analisis Metode Pembayaran Rata-rata
