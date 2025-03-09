@@ -4,11 +4,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Memuat semua datasets
-customers_df = pd.read_csv("customers.csv")
-orders_df = pd.read_csv("orders.csv")
-payments_df = pd.read_csv("payment.csv")
-order_items_df = pd.read_csv("order_items.csv")
-products_df = pd.read_csv("product.csv")
+customers_df = pd.read_csv("dashboard/customers.csv")
+orders_df = pd.read_csv("dashboard/orders.csv")
+payments_df = pd.read_csv("dashboard/payment.csv")
+order_items_df = pd.read_csv("dashboard/order_items.csv")
+products_df = pd.read_csv("dashboard/product.csv")
 
 # Judul Dashboard
 st.title("📊 E-commerce Dashboard")
